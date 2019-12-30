@@ -5,10 +5,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http ;
 
-Future<String> fetchGet() async {
+Future<void> fetchGet() async {
   final response = await http.get(
-    'https://api.giphy.com/v1/gifs/search?api_key= + "afa4ab04efd640d386593c253a02fa5f" + "&q=" + "cat" + "&limit=1"',
-    headers: {HttpHeaders.authorizationHeader: "afa4ab04efd640d386593c253a02fa5f"},
+    'https://api.giphy.com/v1/gifs/trending?api_key=BdTW4i1iwoMKZxqvte5Wjm3ISE1W16fi&limit=5&rating=G',
+    headers: {HttpHeaders.authorizationHeader: "BdTW4i1iwoMKZxqvte5Wjm3ISE1W16fi"},
   );
 
  if (response.statusCode == 200) {
@@ -18,7 +18,7 @@ Future<String> fetchGet() async {
 
   } else {
     
-    throw Exception('Failed to load post');
+    throw Exception('Failed to get response');
   }
 }
 
